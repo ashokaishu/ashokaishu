@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'executing yarn.....'
                 nodejs('NodeJS-21.7') {
-                    echo 'Hi'
+                    sh 'yarn install'
                 }
             }
         }
