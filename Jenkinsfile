@@ -12,7 +12,7 @@ pipeline {
         stage("run backend") {
             steps {
                 echo 'executing gradle....'
-                sh '.\gradlew.bat -v'
+                sh './gradlew.bat -v'
             }
         }
     }
