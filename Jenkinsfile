@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("run frontend") {
             steps {
-                echo 'excecuting yarn.....'
+                echo 'executing yarn.....'
                 nodejs('NodeJS-21.7') {
                     sh 'yarn install'
                 }
@@ -11,10 +11,8 @@ pipeline {
         }
         stage("run backend") {
             steps {
-                echo 'excecuting gradle....'
-                withGradle() {
-                    sh './gradlew -v'
-                }
+                echo 'executing gradle....'
+                sh './gradlew -v'
             }
         }
     }
