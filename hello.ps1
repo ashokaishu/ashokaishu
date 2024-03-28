@@ -1,2 +1,9 @@
-$eventLog = Get-WinEvent -LogName Application -MaxEvents 100 | Where-Object { $_.LevelDisplayName -eq "Error" }
-$eventLog | Format-Table TimeCreated, Id, Message -AutoSize
+$threshold = 80
+
+while ($true) {
+    $cpuUsage = Get-Counter '\Processor(_Total)\% Processor Time' | Select-Object -ExpandProperty CounterSamples | Select-Object -ExpandProperty CookedValue
+    if ($cpuUsage -ge $threshold) {
+        Write-Host "CPU usage is above threshold ($cpuUsage%)."
+    }
+    Start-Sleep -Seconds 10
+}
