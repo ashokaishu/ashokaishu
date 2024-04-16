@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                bat 'javac -d . *.java' // Compile Java files
+                bat 'hello.java' // Replace YourSourceFile.java with your actual source file name
             }
         }
         stage("Run SonarQube Scanner") {
