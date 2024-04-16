@@ -3,11 +3,13 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                bat 'hello.java' // Replace YourSourceFile.java with your actual source file name
+                bat 'javac hello.java'
+                bat 'java hello'
             }
         }
         stage("Run SonarQube Scanner") {
             steps {
+                echo 'Hi'
                 withSonarQubeEnv('SonarQube Scanner') {
                     bat 'sonar-scanner.bat' // Run SonarQube scanner
                 }
