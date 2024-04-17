@@ -8,9 +8,11 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            def scannerHome = tool 'SonarScanner';
-            withSonarQubeEnv() {
-              sh "$C:/Sonar/sonar-scanner-5.0.1.3006-windows/bin/sonar-scanner"
+            steps{
+                def scannerHome = tool 'SonarScanner';
+                withSonarQubeEnv() {
+                  bat "$C:/Sonar/sonar-scanner-5.0.1.3006-windows/bin/sonar-scanner"
+                }
             }
         }
     }
