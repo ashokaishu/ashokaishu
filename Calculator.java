@@ -1,4 +1,6 @@
 public class Calculator {
+    public static void main(String[] args) {
+        // Your main code logic goes here
     public int add(int a, int b) {
         return a + b;
     }
@@ -17,4 +19,5 @@ public class Calculator {
         }
         return a / b;
     }
+}
 }
