@@ -8,7 +8,7 @@ pipeline {
                 bat 'javac Calculator.java'
                 
                 // Run unit tests with coverage using JaCoCo
-                bat 'java -javaagent:jacocoagent.jar -cp . org.junit.platform.console.ConsoleLauncher --scan-class-path --reports-dir coverage --disable-ansi-colors'
+                bat 'java -jar cobertura.jar org.junit.platform.console.ConsoleLauncher --scan-class-path --reports-dir coverage --disable-ansi-colors'
             }
         }
         stage('SonarQube Analysis') {
