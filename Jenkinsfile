@@ -8,10 +8,11 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            steps{
-                def scannerHome = tool 'SonarScanner';
-                withSonarQubeEnv() {
-                  bat "$C:/Sonar/sonar-scanner-5.0.1.3006-windows/bin/sonar-scanner"
+            steps {
+                // Define the SonarScanner tool
+                script {
+                    def scannerHome = tool 'SonarScanner'
+                    bat "$C:\Sonar\sonar-scanner-5.0.1.3006-windows\bin\sonar-scanner"
                 }
             }
         }
