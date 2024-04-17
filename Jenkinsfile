@@ -1,6 +1,12 @@
 pipeline {
     agent any
     
+    tools {
+        // Specify the SonarQube Scanner installation name
+        // Make sure this matches the name configured in Jenkins Global Tool Configuration
+        sonarqube 'SonarQube Scanner'
+    }
+    
     stages {
         stage("Build and Test") {
             steps {
