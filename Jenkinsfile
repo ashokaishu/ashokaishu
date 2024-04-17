@@ -7,12 +7,10 @@ pipeline {
                 bat 'java hello'
             }
         }
-        stage("Run SonarQube Scanner") {
-            steps {
-                echo 'Hi'
-                withSonarQubeEnv('SonarQube Scanner') {
-                    bat 'sonar-scanner.bat' // Run SonarQube scanner
-                }
+        stage('SonarQube Analysis') {
+            def scannerHome = tool 'SonarScanner';
+            withSonarQubeEnv() {
+              sh "$C:/Sonar/sonar-scanner-5.0.1.3006-windows/bin/sonar-scanner"
             }
         }
     }
