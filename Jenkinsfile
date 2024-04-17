@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Define the SonarScanner tool
                 script {
-                    def scannerHome = tool 'SonarScanner'
+                    def scannerHome = tool 'SonarQube Scanner'
                     bat "$C:/Sonar/sonar-scanner-5.0.1.3006-windows/bin/sonar-scanner.bat"
                 }
             }
